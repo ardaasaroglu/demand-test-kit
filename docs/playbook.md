@@ -19,7 +19,7 @@ The two rates come from your own numbers, not from a benchmark. An example, with
 * You need 100 paying customers in the first month for the product to be worth running.
 * You expect about 1 in 5 waitlist sign-ups to pay at launch. Your own guess, written down.
 * So you need 500 sign-ups. If you can bring about 5,000 visitors to the launch, you need a 10% sign-up rate. That is the go bar.
-* Below 2%, even doubling your traffic would not get you there. That is the kill floor.
+* At 2%, the same 5,000 visitors bring only 100 sign-ups, a fifth of what you need. That is the kill floor.
 
 `goMinSignups` stops a GO on a handful of people: a lower bound can clear the bar with very few sign-ups when traffic is small. Keep it at 10 or more.
 

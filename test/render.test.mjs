@@ -129,7 +129,7 @@ describe('the static demo', () => {
     for (const [, url] of html.matchAll(/\s(?:src|href)="([^"]+)"/g)) {
       assert.ok(!url.startsWith('/'), `relative path on GitHub Pages: ${url}`);
     }
-    assert.match(html, /<meta property="og:image" content="https:\/\/ardaasaroglu\.github\.io\/demand-test-kit\/assets\/og\.png">/);
+    assert.match(html, /<meta property="og:image" content="https:\/\/ardaasaroglu\.github\.io\/demand-test-kit\/assets\/kit-card\.png">/);
     assert.match(demo['privacy.html'], /Demo: nothing is sent\./);
   });
 });

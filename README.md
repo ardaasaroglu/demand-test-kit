@@ -16,7 +16,7 @@
 
 <p align="center"><a href="https://github.com/ardaasaroglu/demand-test-kit/actions/workflows/ci.yml"><img src="https://github.com/ardaasaroglu/demand-test-kit/actions/workflows/ci.yml/badge.svg" alt="ci"></a></p>
 
-![The example landing page for Fernquill, a fictional gardening app: a "not available yet" badge, the headline, two buttons and an illustration of a weekly plan](docs/assets/screenshot-desktop.png)
+![The output of npm run results: a table of three prices with visitors, clicks, sign-ups, conversion with intervals, revenue per 100 visitors and P(best), a table of sources, and the verdict GO](docs/assets/results.png)
 
 You describe a product that does not exist yet. Each visitor sees one of two to four planned prices and can join a waitlist. Links you share carry a tag, so you know which channel worked. Before you share anything, you write down the numbers that mean "build it" and "drop it". `npm run results` then tells you which one you got.
 
@@ -39,7 +39,7 @@ You describe a product that does not exist yet. Each visitor sees one of two to 
 <img src="docs/assets/screenshot-mobile-thanks.png" alt="The thank-you state on a phone, taken from the static demo: You are on the list, with a share link and Copy link and Share buttons under the demo notice" width="270">
 </p>
 
-![The output of npm run results: a table of three prices with visitors, clicks, sign-ups, conversion with intervals, revenue per 100 visitors and P(best), a table of sources, and the verdict GO](docs/assets/results.png)
+![The example landing page for Fernquill, a fictional gardening app: a "not available yet" badge, the headline, two buttons and an illustration of a weekly plan](docs/assets/screenshot-desktop.png)
 
 ## Quickstart
 
@@ -216,7 +216,7 @@ Each time you run `npm run results`, the rule gives one verdict:
 | KEEP RUNNING | The best price is between the two bars. |
 | TIME UP | `test.maxDays` have passed without a KILL or GO. Do what you decided in advance: iterate or drop. |
 
-Bounds are one-sided Wilson bounds at `confidence`. The price line under the verdict names a winner only when its P(best) reaches `confidence`.
+Bounds are one-sided Wilson bounds at `confidence`. In plain words: the lower bound is the rate you can be 95% sure the price beats, and the upper bound is the rate you can be 95% sure it stays under. The price line under the verdict names a winner only when its P(best) reaches `confidence`.
 
 **Plan the sample.** Visitors needed per price to tell two conversion rates apart, at 5% significance and 80% power (computed by `sampleSizePerArm` in `src/stats.js`, checked in the tests):
 
@@ -227,7 +227,7 @@ Bounds are one-sided Wilson bounds at `confidence`. The price line under the ver
 | 2% | 4% | 1,141 |
 | 5% | 7.5% | 1,471 |
 
-A small test can only find large differences, roughly a doubling. Test prices that are far apart, and test two or three, not four.
+`minVisitorsPerVariant` (200 by default) is the minimum for any verdict about demand. Telling two prices apart needs the larger numbers in this table. A small test can only find large differences, roughly a doubling. Test prices that are far apart, and test two or three, not four.
 
 **Do not stop at the first good day.** Checking a significance test repeatedly and stopping at the first win pushed false positives to 26.1% in [Evan Miller's simulation](https://www.evanmiller.org/how-not-to-run-an-ab-test.html). This rule only acts after the minimum sample, but every extra look still adds risk. Look once a day at most, run at least a full week, and raise `confidence` to 0.99 if you will look more often. [docs/playbook.md](docs/playbook.md) walks through a whole test.
 

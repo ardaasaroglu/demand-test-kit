@@ -20,7 +20,7 @@ export function renderDemo() {
     privacy: readFileSync(join(ROOT, 'src/templates/privacy.html'), 'utf8'),
   };
   const variant = config.pricing.variants[1] ?? config.pricing.variants[0];
-  const demoBar = `<div class="demo-bar" role="region" aria-label="Demo notice"><strong>Demo: nothing is sent.</strong> A static copy of the example page, fixed on price ${escapeHtml(variant.id)} (${escapeHtml(describeVariant(config.pricing, variant))}). <a href="${REPO_URL}">Get the kit on GitHub</a><span class="demo-note" id="demo-note" role="status"></span></div>`;
+  const demoBar = `<div class="demo-bar" role="region" aria-label="Demo notice"><strong>Demo: nothing is sent.</strong> This is the example page from demand-test-kit. The real page tests its price on every visitor, and a report turns the sign-ups into GO or KILL. Shown here on price ${escapeHtml(variant.id)} (${escapeHtml(describeVariant(config.pricing, variant))}). <a href="${REPO_URL}">Get the kit on GitHub</a><span class="demo-note" id="demo-note" role="status"></span></div>`;
   const landing = renderLanding(config, templates.landing, {
     variantId: variant.id,
     viewId: '',
@@ -33,7 +33,7 @@ export function renderDemo() {
     consentAction: '#',
     shareUrl: `${DEMO_URL}?src=share`,
     pageUrl: DEMO_URL,
-    ogImageUrl: `${DEMO_URL}assets/og.png`,
+    ogImageUrl: `${DEMO_URL}assets/kit-card.png`,
     demo: true,
     demoBar,
     optedOut: false,
@@ -52,6 +52,8 @@ function main() {
   const assets = join(ROOT, 'public/assets');
   for (const file of readdirSync(assets)) copyFileSync(join(assets, file), join(docs, 'assets', file));
   copyFileSync(join(ROOT, 'public/favicon.ico'), join(docs, 'favicon.ico'));
+  // The demo link previews as the kit, not as the fictional product.
+  copyFileSync(join(ROOT, 'scripts/demo/kit-card.png'), join(docs, 'assets', 'kit-card.png'));
   console.log('Wrote docs/index.html, docs/privacy.html and docs/assets/.');
 }
 
