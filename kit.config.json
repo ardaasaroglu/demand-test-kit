@@ -1,0 +1,94 @@
+{
+  "product": {
+    "name": "Fernquill",
+    "tagline": "Know what to sow this week.",
+    "description": "Fernquill turns the seeds you have and the space you grow in into a plan for every week, then remembers what grew so next season starts from what worked.",
+    "heroImage": {
+      "file": "hero.svg",
+      "alt": "A Fernquill weekly plan: sow broad beans, plant garlic, pick the last chard, and a note that two seed packets are past their best."
+    },
+    "steps": [
+      {
+        "title": "Add your plot and your seeds",
+        "text": "Photograph the seed packets you already have and say where you grow: a balcony, a back garden or an allotment."
+      },
+      {
+        "title": "Get a plan every Monday",
+        "text": "See what to sow, plant out and harvest this week, timed to the frost dates for your area."
+      },
+      {
+        "title": "Log what grew",
+        "text": "Two taps after each harvest. Next spring, your plan starts from the varieties that did well."
+      }
+    ],
+    "features": [
+      "A weekly sowing and harvest plan for your area",
+      "A seed stash that tracks packet dates",
+      "A season log with photos and notes",
+      "Works on your phone and your computer"
+    ],
+    "faq": [
+      {
+        "q": "Can I use Fernquill today?",
+        "a": "Not yet. Fernquill is in development. Join the waitlist and we will email you when it opens."
+      },
+      {
+        "q": "Will I be charged anything?",
+        "a": "No. This page never asks for payment details. The price shown is the price we plan to charge at launch."
+      },
+      {
+        "q": "Why might a friend see a different price?",
+        "a": "We are still choosing the price, so visitors see one of a few planned prices. Your interest helps us decide."
+      },
+      {
+        "q": "What happens to my email address?",
+        "a": "We use it only to tell you when Fernquill opens. The privacy notice says what we store and when we delete it."
+      }
+    ]
+  },
+  "test": {
+    "startDate": null,
+    "maxDays": 21
+  },
+  "pricing": {
+    "currency": "USD",
+    "locale": "en-US",
+    "billingPeriod": "month",
+    "trialDays": 14,
+    "variants": [
+      { "id": "a", "price": 4 },
+      { "id": "b", "price": 7 },
+      { "id": "c", "price": 12 }
+    ]
+  },
+  "killRule": {
+    "minVisitorsPerVariant": 200,
+    "killFloorRate": 0.02,
+    "goBarRate": 0.04,
+    "goMinSignups": 10,
+    "confidence": 0.95
+  },
+  "privacy": {
+    "controllerName": "Fernquill (a fictional example)",
+    "contactEmail": "you@example.com",
+    "retentionDays": 180,
+    "jurisdictionNote": "Fernquill is a fictional product used to show this kit. A real page names the country it operates from and the data protection authority you can complain to.",
+    "lastUpdated": "2026-10-14",
+    "stickiness": "cookie"
+  },
+  "form": {
+    "askName": true,
+    "question": {
+      "label": "Where do you grow?",
+      "required": false,
+      "options": [
+        { "id": "balcony", "label": "Balcony or windowsill" },
+        { "id": "garden", "label": "Back garden" },
+        { "id": "allotment", "label": "Allotment or community plot" },
+        { "id": "market", "label": "Small market garden" }
+      ]
+    },
+    "consentText": "Email me when Fernquill opens. I can ask to be removed at any time.",
+    "consentVersion": "1"
+  }
+}

@@ -1,0 +1,9 @@
+# Headers for static files. The Worker sets its own headers on /, /privacy and /api/*.
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: same-origin
+  Strict-Transport-Security: max-age=31536000
+  Content-Security-Policy: default-src 'none'; frame-ancestors 'none'
+
+/assets/*
+  Cache-Control: public, max-age=3600

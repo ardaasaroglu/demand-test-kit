@@ -1,0 +1,34 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "demand-test-kit",
+  "main": "src/index.js",
+  // The newest date the runtime in the pinned wrangler supports. Move it with wrangler updates.
+  "compatibility_date": "2026-10-06",
+  "assets": {
+    "directory": "./public",
+    // The page, the privacy notice and the API always run the Worker. Static files are served
+    // without it, for free and without counting against the daily request limit. A path that
+    // matches no file also reaches the Worker, which answers 404.
+    "run_worker_first": ["/", "/privacy", "/api/*"]
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "demand-test-kit",
+      "migrations_dir": "migrations"
+      // No database_id on purpose: the first `wrangler deploy` creates the database in your
+      // Cloudflare account. If you already have one, add "database_id": "<its id>" here.
+    }
+  ],
+  // Once a day, delete views, clicks and sign-ups older than privacy.retentionDays.
+  "triggers": {
+    "crons": ["17 3 * * *"]
+  },
+  "observability": {
+    "enabled": true,
+    "logs": {
+      // Keep request logs off: they would record each request. Errors are still logged.
+      "invocation_logs": false
+    }
+  }
+}

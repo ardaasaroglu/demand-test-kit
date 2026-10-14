@@ -1,0 +1,21 @@
+node_modules/
+
+# local Workers state: the local D1 database lives here
+.wrangler/
+
+# waitlist exports hold real email addresses
+exports/
+
+# secrets and local settings, never commit
+.dev.vars
+.dev.vars.*
+.env
+.env.*
+
+*.log
+
+# editor and OS files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

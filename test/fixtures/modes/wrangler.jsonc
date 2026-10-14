@@ -1,0 +1,19 @@
+// Test-only Worker: runs the kit with several configs at once, picked per request by the
+// x-test-config header. Used by test/modes.test.mjs.
+{
+  "$schema": "../../../node_modules/wrangler/config-schema.json",
+  "name": "demand-test-kit-modes",
+  "main": "worker.js",
+  "compatibility_date": "2026-10-06",
+  "assets": {
+    "directory": "../../../public",
+    "run_worker_first": ["/", "/privacy", "/api/*"]
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "demand-test-kit-modes",
+      "migrations_dir": "../../../migrations"
+    }
+  ]
+}

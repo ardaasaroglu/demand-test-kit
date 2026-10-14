@@ -1,0 +1,57 @@
+{
+  "name": "demand-test-kit",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Test demand and price before you build. A landing page with a price A/B test, a waitlist, source tags and a kill rule you set in advance. Free on Cloudflare.",
+  "type": "module",
+  "license": "MIT",
+  "author": {
+    "name": "Arda Asaroglu",
+    "url": "https://github.com/ardaasaroglu"
+  },
+  "homepage": "https://ardaasaroglu.github.io/demand-test-kit/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ardaasaroglu/demand-test-kit.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ardaasaroglu/demand-test-kit/issues"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "check": "node scripts/check-config.mjs",
+    "dev": "npm run check && wrangler d1 migrations apply DB --local && wrangler dev",
+    "test": "node --test \"test/*.test.mjs\"",
+    "deploy": "npm run check && wrangler deploy && wrangler d1 migrations apply DB --remote",
+    "results": "node scripts/results.mjs --remote",
+    "results:local": "node scripts/results.mjs --local",
+    "export": "node scripts/export.mjs --remote",
+    "export:local": "node scripts/export.mjs --local",
+    "seed:local": "node scripts/seed-local.mjs",
+    "forget": "node scripts/forget.mjs --remote",
+    "demo:build": "node scripts/build-demo.mjs"
+  },
+  "devDependencies": {
+    "wrangler": "4.149.0"
+  },
+  "cloudflare": {
+    "bindings": {
+      "DB": {
+        "description": "The D1 database that stores page views, clicks and waitlist signups. Cloudflare creates it for you on the first deploy."
+      }
+    }
+  },
+  "keywords": [
+    "demand-validation",
+    "fake-door-test",
+    "price-testing",
+    "ab-testing",
+    "waitlist",
+    "landing-page",
+    "cloudflare-workers",
+    "cloudflare-d1",
+    "statistics"
+  ]
+}

@@ -1,0 +1,27 @@
+name: Bug report
+description: Something does not work the way the README says it should.
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: Do not paste a Cloudflare API token, a database id you want to keep private, or anyone's email address from your waitlist. For a security problem, use the security policy instead of an issue.
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+      description: What you did, what you expected and what you saw.
+    validations:
+      required: true
+  - type: input
+    id: where
+    attributes:
+      label: Where
+      description: Local (`npm run dev`) or deployed, plus your OS, Node version and wrangler version.
+      placeholder: Local, macOS 15, Node 22, wrangler 4.149.0
+    validations:
+      required: true
+  - type: textarea
+    id: output
+    attributes:
+      label: Terminal output or browser console errors
+      render: text

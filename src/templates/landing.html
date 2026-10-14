@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{name}}: {{tagline}}</title>
+  <meta name="description" content="{{description}}">
+  <meta name="theme-color" content="#2f6b3f">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="{{name}}: {{tagline}}">
+  <meta property="og:description" content="{{description}}">
+  <meta property="og:url" content="{{pageUrl}}">
+  <meta property="og:image" content="{{ogImageUrl}}">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="{{base}}favicon.ico" sizes="32x32">
+  <link rel="icon" href="{{base}}assets/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="{{base}}assets/apple-touch-icon.png">
+  <link rel="stylesheet" href="{{base}}assets/style.css">
+  <script src="{{base}}assets/app.js" defer></script>
+</head>
+<body data-view="{{viewId}}" data-variant="{{variantId}}" data-src="{{src}}" data-mode="{{mode}}">
+{{{demoBar}}}
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+  <div class="wrap top-inner">
+    <a class="brand" href="{{homeHref}}"><img src="{{base}}assets/favicon.svg" alt="" width="28" height="28"><span>{{name}}</span></a>
+    <a class="btn btn-small" href="#join" data-track="cta_click">Join the waitlist</a>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <p class="status"><span class="status-dot" aria-hidden="true"></span>In development. Not available yet.</p>
+        <h1>{{tagline}}</h1>
+        <p class="lead">{{description}}</p>
+        <div class="actions">
+          <a class="btn" href="#join" data-track="cta_click">Join the waitlist</a>
+          <a class="btn btn-ghost" href="#price">See the planned price</a>
+        </div>
+      </div>
+      {{{heroImage}}}
+    </div>
+  </section>
+{{{stepsSection}}}
+
+  <section class="section price-section" id="price" aria-labelledby="price-title">
+    <div class="wrap narrow">
+      <h2 id="price-title">Planned price</h2>
+      <div class="price-card">
+        {{{planName}}}
+        <p class="price"><span class="amount">{{price}}</span> <span class="period">{{period}}</span></p>
+        {{{trialLine}}}
+        {{{featureList}}}
+        <a class="btn btn-wide" href="#join" data-track="price_click">Join the waitlist at this price</a>
+        <p class="fine">{{name}} is not available yet. Nothing is charged on this page.</p>
+      </div>
+      {{{testNotice}}}
+    </div>
+  </section>
+{{{faqSection}}}
+
+  <section class="section join" id="join" aria-labelledby="join-title">
+    <div class="wrap narrow">
+      <div class="join-card">
+        <div id="join-form-wrap">
+          <h2 id="join-title">Join the waitlist</h2>
+          <p class="honest"><strong>{{name}} is not available yet.</strong> Leave your email address and we will write to you when it opens. We never ask for payment here.</p>
+          <form id="signup" class="form" method="post" action="{{signupAction}}" novalidate>
+          <div class="field">
+            <label for="f-email">Email address</label>
+            <input id="f-email" name="email" type="email" autocomplete="email" inputmode="email" maxlength="254" required aria-describedby="e-email">
+            <p class="error" id="e-email" data-error-for="email"></p>
+          </div>{{{nameField}}}{{{questionField}}}
+          <div class="field check">
+            <input id="f-consent" name="consent" type="checkbox" required aria-describedby="e-consent">
+            <label for="f-consent">{{consentText}}</label>
+            <p class="error" id="e-consent" data-error-for="consent"></p>
+          </div>
+          <div class="hp" aria-hidden="true">
+            <label for="f-website">Leave this field empty</label>
+            <input id="f-website" name="website" type="text" tabindex="-1" autocomplete="off">
+          </div>
+          <button class="btn btn-wide" type="submit" disabled>Join the waitlist</button>
+          <p class="error form-error" id="e-form" role="alert" data-error-for="form"></p>
+          <p class="fine">Read the <a href="{{privacyHref}}">privacy notice</a> to see what is stored and for how long.</p>
+          <noscript><p class="fine">The form needs JavaScript. Turn it on and reload the page to join.</p></noscript>
+          </form>
+        </div>
+        <div id="thanks" class="thanks" hidden>
+          <h2 tabindex="-1" id="thanks-title">You are on the list.</h2>
+          <p>We will email you when {{name}} opens. Know someone who would want it too? Send them this link.</p>
+          <div class="share">
+            <label for="share-url">Link to share</label>
+            <div class="share-row">
+              <input id="share-url" type="text" readonly value="{{shareUrl}}">
+              <button class="btn" type="button" id="copy-link">Copy link</button>
+            </div>
+            <button class="btn btn-ghost" type="button" id="native-share" hidden>Share</button>
+            <p class="copied" id="copy-status" role="status"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap foot-inner">
+    <p>{{controllerName}}</p>
+    <nav aria-label="Legal">
+      <a href="{{privacyHref}}">Privacy notice</a>
+      {{{footerLinks}}}
+    </nav>
+  </div>
+</footer>
+{{{consentBanner}}}
+</body>
+</html>
