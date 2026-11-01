@@ -34,7 +34,7 @@
     "demo:build": "node scripts/build-demo.mjs"
   },
   "devDependencies": {
-    "wrangler": "4.149.0"
+    "wrangler": "4.155.0"
   },
   "cloudflare": {
     "bindings": {
